@@ -30,6 +30,7 @@ std::string HttpRequest::get(const std::string& url, const std::string& userAgen
             std::cerr << "curl_easy_perform() failed: " << curl_easy_strerror(res) << std::endl;
         }
     }
+    // ce morceau de code aurait mérité quelques explications
 
     return response_data;
 }
@@ -37,5 +38,8 @@ std::string HttpRequest::get(const std::string& url, const std::string& userAgen
 size_t HttpRequest::WriteCallback(void* contents, size_t size, size_t nmemb, std::string* output) {
     size_t total_size = size * nmemb;
     output->append(static_cast<char*>(contents), total_size);
+    // Les pointeurs void* peuvent être convertis implicitement en n’importe quel autre type de pointeur.
+    // être explicite est souvent la meilleureapproche, attention à ne pas donner l'impression qu'une opération
+    // spéciale est en cours alors qu'une conversion implicite pourrait suffire (cela dépendra des contextes)
     return total_size;
 }

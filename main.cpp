@@ -52,3 +52,16 @@ int main() {
 
     return 0;
 }
+
+
+// D'une manière générale, prennez le temps de réfléchir à votre approche sur le problème avant de coder.
+// Prennez le temps de comprendre le code que vous utiliser.
+// Votre projet aborde en effet des aspects complexes qui vous ont obligés à trouver des "astuces" parfois maladroites (std:sleep)
+// Je vous avoue que l'idée d'executer du code venant de l'exterieur sans aucune validation peut en faire bondir plus d'un.
+
+// Une fois que vous choisissez une facon de nommer les variables, mettez vous d'accord et gardez cette notation
+// ici on a executeCommand d'un côté et getcmd_number de l'autre.
+
+// Le code reste relativement clair et je ne peux que vous encourager a continuer d'experimenter via des projets qui vous inspirent.
+
+// 13/20

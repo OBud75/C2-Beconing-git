@@ -22,6 +22,9 @@ std::string ExecCmd::executeCommand() const {
         std::cout << "Executing command: " << command << std::endl;
 
         std::unique_ptr<FILE, decltype(&pclose)> pipe(popen(command.c_str(), "r"), pclose);
+        // popen exécute la commande dans un processus fils et crée un pipe entre le processus parent (le programme C++) et le processus fils (la commande shell)
+        // la commande est exécutée dans le même environnement que le programme C++
+        // D'autres stratégies sont possibles,  continuez d'experimenter, passer des pointeurs d'un processus à l'autre etc
 
         if (!pipe) {
             throw std::runtime_error("popen() failed!");
@@ -29,6 +32,9 @@ std::string ExecCmd::executeCommand() const {
 
         std::ostringstream resultStream;
         char buffer[128];
+        // l'utilisateur peut dépasser du buffer
+        // C++ met a disposition des classes et fonctions permettant
+        // de minimiser le risque d'erreurs, utilisez les
 
         while (fgets(buffer, sizeof(buffer), pipe.get()) != nullptr) {
             resultStream << buffer;
