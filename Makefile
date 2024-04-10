@@ -1,7 +1,7 @@
 # Makefile
 
 CXX = g++
-CXXFLAGS = -std=c++20 -Wall -I$(INCLUDE_DIR)
+CXXFLAGS = -Wall -I$(INCLUDE_DIR)
 LDFLAGS = -lcurl
 SRC_DIR = src
 INCLUDE_DIR = include
